@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  Copyright © 2017 Wyomind. All rights reserved.
+  See LICENSE.txt for license details.
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- PLUGIN ON "BIN/MAGENTO CRON:RUN" -->
+    <type name="Magento\Cron\Observer\ProcessCronQueueObserver">
+        <plugin name="wyomind_cronscheduler_plugin_cron_observer_processcronqueueobserver" 
+                type="Wyomind\CronScheduler\Plugin\Cron\Observer\ProcessCronQueueObserver" />
+    </type>
+    
+    <!-- COMMAND LINE -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="cs_task_list" xsi:type="object">Wyomind\CronScheduler\Console\Command\Task\Listing</item>
+                <item name="cs_task_show" xsi:type="object">Wyomind\CronScheduler\Console\Command\Task\Show</item>
+                <item name="cs_job_list" xsi:type="object">Wyomind\CronScheduler\Console\Command\Job\Listing</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,58 @@
+Id,Id
+Status,Status
+"Created at","Created at"
+"Scheduled at","Scheduled at"
+"Executed at","Executed at"
+"Finished at","Finished at"
+Messages,Messages
+"Cron Scheduler : get list of all jobs","Cron Scheduler : get list of all jobs"
+Code,Code
+Group,Group
+Method,Method
+Schedule,Schedule
+"Cron Scheduler : get list of all tasks","Cron Scheduler : get list of all tasks"
+"Cron Scheduler : get details of a task","Cron Scheduler : get details of a task"
+"The id of the task","The id of the task"
+"Cron Scheduler > Jobs Configuration","Cron Scheduler > Jobs Configuration"
+"Cron Scheduler","Cron Scheduler"
+"Cron Scheduler > Tasks List","Cron Scheduler > Tasks List"
+CronScheduler,CronScheduler
+"You are not allowed to delete tasks","You are not allowed to delete tasks"
+"%1 tasks have been deleted","%1 tasks have been deleted"
+"%1 task has been deleted","%1 task has been deleted"
+"Cron Scheduler > Timeline","Cron Scheduler > Timeline"
+"Cron is alive","Cron is alive"
+"Last heartbeat is older than %1 hour%2","Last heartbeat is older than %1 hour%2"
+"Last heartbeat is older than %1 minute%2","Last heartbeat is older than %1 minute%2"
+"Last heartbeat was %1 minute%2 ago","Last heartbeat was %1 minute%2 ago"
+"No heartbeat found","No heartbeat found"
+ERROR,ERROR
+MISSED,MISSED
+RUNNING,RUNNING
+PENDING,PENDING
+SUCCESS,SUCCESS
+"Message: ","Message: "
+"File: ","File: "
+"Line: ","Line: "
+"View more","View more"
+"Run tasks & Generate Schedule","Run tasks & Generate Schedule"
+"Task #","Task #"
+"Job code","Job code"
+"Upgrade to <b>Cron Sheduler Pro</b>","Upgrade to <b>Cron Sheduler Pro</b>"
+"License activation","License activation"
+"Extension version","Extension version"
+"Activation key","Activation key"
+"<span class=""notice"">Enter your activation key and click on `save config`.</span>","<span class=""notice"">Enter your activation key and click on `save config`.</span>"
+"License code","License code"
+"<span class=""notice"">Enter your license code <b>only if prompted<b>.</span>","<span class=""notice"">Enter your license code <b>only if prompted<b>.</span>"
+Instance,Instance
+Delete,Delete
+"Delete tasks","Delete tasks"
+"Are you sure you wan't to delete selected tasks?","Are you sure you wan't to delete selected tasks?"
+ID,ID
+"Generate Schedule","Generate Schedule"
+Call,Call
+"Original Schedule","Original Schedule"
+"Delete Selected","Delete Selected"
+"Delete all selected tasks","Delete all selected tasks"
+"Do you want to delete all the selected tasks?","Do you want to delete all the selected tasks?"

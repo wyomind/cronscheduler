@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  Copyright © 2017 Wyomind. All rights reserved.
+  See LICENSE.txt for license details.
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- BUTTONS/ACTIONS SECTION -->
+        <referenceContainer name="page.main.actions">
+            <!-- RUN TASKS AND GENERATE SCHEDULE -->
+            <block class="Wyomind\CronScheduler\Block\Adminhtml\Job\Listing\Actions" 
+                   name="cronscheduler_job_listing_actions"/>
+            <!-- UPGRADE TO CRON SCHEDULER PRO -->
+            <block class="Wyomind\CronScheduler\Block\Adminhtml\UpgradeToPro" 
+                   name="cronscheduler_upgrade_to_pro"/>
+        </referenceContainer>
+        <!-- MAIN CONTENT -->
+        <referenceContainer name="content">
+            <!-- JOB LISTING -->
+            <uiComponent name="cronscheduler_job_listing"/>
+        </referenceContainer>
+    </body>
+</page>

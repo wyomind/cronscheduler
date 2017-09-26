@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+ Copyright © 2017 Wyomind. All rights reserved.
+ See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Wyomind_CronScheduler::global" title="Cron Scheduler" sortOrder="10">
+                    <resource id="Wyomind_CronScheduler::menu" title="Menu" sortOrder="10">
+                        <!-- job list page -->
+                        <resource id="Wyomind_CronScheduler::job_listing" title="Jobs Configuration" sortOrder="10"/>
+                        <!-- tasks list page -->
+                        <resource id="Wyomind_CronScheduler::task_listing" title="Tasks List" sortOrder="20"/>
+                        <!-- tasks timeline page -->
+                        <resource id="Wyomind_CronScheduler::task_timeline" title="Tasks Timeline" sortOrder="30"/>
+                    </resource>
+                    <!-- tasks mass delete action -->
+                    <resource id="Wyomind_CronScheduler::task_massdelete" title="Delete Task" sortOrder="10"/>
+                    <!-- run tasks and generate schedule action -->
+                    <resource id="Wyomind_CronScheduler::generate_schedule" title="Run Tasks and Generate Scheduler" sortOrder="20"/>
+                    <!-- module configuration -->
+                    <resource id="Wyomind_CronScheduler::config" title="Manage module configuration" sortOrder="30"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

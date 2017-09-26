@@ -1,0 +1,54 @@
+/*
+ Copyright © 2017 Wyomind. All rights reserved.
+ See LICENSE.txt for license details.
+*/
+span.grid-severity-running{
+    background: #fff3da;
+    border: 1px solid #ffd400;
+    color: #ffd400;
+    display: block;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 0 3px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#task-view table {
+    width:100%;
+}
+
+#task-view td {
+    vertical-align:top;
+
+}
+#task-view td:first-child {
+    min-width:200px;
+    max-width:200px;
+    width:200px;
+}
+
+#task-view span#task-messages {
+    display: block;
+    height: 430px;
+    overflow-y: scroll;
+    font-family: monospace;
+    font-size: 1.3em;
+}
+#task-view span#task-status {
+    width: 150px;
+}
+
+#task-view span {
+    display: block;
+    margin-bottom: 20px;
+    vertical-align: bottom;
+}
+
+#task-view label {
+    display: block;
+    margin-bottom: 20px;
+    float: left;
+    font-weight: bold;
+    width: 150px;
+}

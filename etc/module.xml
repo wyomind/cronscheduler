@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+  Copyright © 2017 Wyomind. All rights reserved.
+  See LICENSE.txt for license details.
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/Magento/Module/etc/module.xsd">
+    <module name="Wyomind_CronScheduler" setup_version="1.0.1.4">
+    </module>
+</config>

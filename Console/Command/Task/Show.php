@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * Copyright © 2017 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+namespace Wyomind\CronScheduler\Console\Command\Task;
+
+/**
+ * wyomind:cronscheduler:show command line
+ * @version 1.0.0
+ * @description <pre>
+ * $ bin/magento help wyomind:cronscheduler:show
+ * Usage:
+ * wyomind:cronscheduler:task:show id
+ *
+ * Arguments:
+ * task_id               The id of the task
+ * 
+ * Options:
+ * --help (-h)           Display this help message
+ * --quiet (-q)          Do not output any message
+ * --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+ * --version (-V)        Display this application version
+ * --ansi                Force ANSI output
+ * --no-ansi             Disable ANSI output
+ * --no-interaction (-n) Do not ask any interactive question
+ * </pre>
+ */
+class Show extends \Symfony\Component\Console\Command\Command
+{
+
+    /**
+     * Command line argument name
+     */
+    const TASK_ID_ARG = "task_id";
+
+    /**
+     * @var \Magento\Cron\Model\ScheduleFactory
+     */
+    protected $_taskModelFactory = null;
+
+    /**
+     * @var \Magento\Framework\App\State
+     */
+    protected $_state = null;
+
+    /**
+     * Class constructor
+     * @param \Magento\Cron\Model\ScheduleFactory $taskModelFactory
+     * @param \Magento\Framework\App\State $state
+     */
+    public function __construct(
+    \Magento\Cron\Model\ScheduleFactory $taskModelFactory,
+            \Magento\Framework\App\State $state
+    )
+    {
+        $this->_state = $state;
+        $this->_taskModelFactory = $taskModelFactory;
+        parent::__construct();
+    }
+
+    /**
+     * Configure the command line
+     */
+    protected function configure()
+    {
+        $this->setName('wyomind:cronscheduler:task:show')
+                ->setDescription(__('Cron Scheduler : get details of a task'))
+                ->setDefinition([
+                    new \Symfony\Component\Console\Input\InputArgument(
+                            self::TASK_ID_ARG, \Symfony\Component\Console\Input\InputArgument::REQUIRED, __('The id of the task')
+                    )
+        ]);
+        parent::configure();
+    }
+
+    /**
+     * Execute the command line
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return int \Magento\Framework\Console\Cli::RETURN_FAILURE or \Magento\Framework\Console\Cli::RETURN_SUCCESS
+     */
+    protected function execute(
+    \Symfony\Component\Console\Input\InputInterface $input,
+            \Symfony\Component\Console\Output\OutputInterface $output
+    )
+    {
+
+
+        try {
+            $this->_state->setAreaCode('adminhtml');
+            $taskId = $input->getArgument(self::TASK_ID_ARG);
+            $task = $this->_taskModelFactory->create()->load($taskId);
+            $item = $task->getData();
+
+            $max = [
+                strlen($item['schedule_id']),
+                strlen($item['job_code']),
+                strlen($item['status']),
+                strlen($item['created_at']),
+                strlen($item['scheduled_at']),
+                strlen($item['executed_at']),
+                strlen($item['finished_at'])
+            ];
+
+            $output->writeln("");
+            $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s | %-" . $max[4] . "s | %-" . $max[5] . "s | %-" . $max[6] . "s ", __("#"), __("Code"), __("Status"), __("Created at"), __("Scheduled at"), __("Executed at"), __("Finished at"));
+            $output->writeln($row);
+            $separator = sprintf("-%'-" . $max[0] . "s-+-%'-" . $max[1] . "s-+-%'-" . $max[2] . "s-+-%'-" . $max[3] . "s-+-%'-" . $max[4] . "s-+-%'-" . $max[5] . "s-+-%'-" . $max[6] . "s", "", "", "", "", "", "", "");
+            $output->writeln($separator);
+            $row = sprintf(" %-s | %-s | %-s | %-s | %-s | %-s | %-s ", $item['schedule_id'], $item['job_code'], $item['status'], $item['created_at'], $item['scheduled_at'], $item['executed_at'], $item['finished_at']);
+            $output->writeln($row);
+            $output->writeln("");
+            $output->writeln("Message:");
+            $output->writeln($item['messages']);
+            $returnValue = \Magento\Framework\Console\Cli::RETURN_SUCCESS;
+        } catch (\Magento\Framework\Exception\LocalizedException $e) {
+            $output->writeln($e->getMessage());
+            $returnValue = \Magento\Framework\Console\Cli::RETURN_FAILURE;
+        }
+
+
+        return $returnValue;
+    }
+
+}

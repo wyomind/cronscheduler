@@ -1,0 +1,100 @@
+<?php
+/**
+ * Copyright © 2017 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /* no way to load the google lib in require or define (?!) */ ?>
+
+<script type="text/javascript">
+
+    google.load("visualization", "1");
+
+    google.setOnLoadCallback(draw);
+
+<?php $data = $block->getTimelineData(); ?>
+    var jsonData = <?php echo json_encode($data); ?>;
+
+    function draw() {
+
+        var options = {
+            stackEvents: false,
+            start: new Date(),
+            end: new Date(1000 * 60 * 60 * 24 + (new Date()).valueOf()),
+            editable: false,
+            animate: false,
+            eventMargin: 10,
+            eventMarginAxis: 5,
+            showMajorLabels: true,
+            cluster: false,
+            axisOnTop: true,
+            snapEvents: true,
+            dragAreaWidth: 20,
+            groupMinHeight: 35,
+            selectable: false
+        };
+
+        var timeline = new links.Timeline(document.getElementById('timeline'), options);
+        timeline.setCurrentTime(<?php echo $block->getCurrentJsDate(); ?>);
+
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('datetime', 'start');
+        data.addColumn('datetime', 'end');
+        data.addColumn('string', 'content');
+        data.addColumn('string', 'group');
+        data.addColumn('string', 'className');
+
+        <?php $i = 0; foreach ($data as $row) : ?>
+        data.addRow([<?php echo $row[3]; ?>, <?php echo $row[4]; ?>, '', '<?php echo $row[0]; ?>', '<?php echo $i++ . " " . $row[1]; ?>']);
+        <?php endforeach; ?>
+
+        timeline.draw(data);
+    }
+</script>
+
+
+
+<div id="timeline"></div>
+<div id="timeline-tooltip" style="position:absolute; display:none"></div>
+<script>
+    require(["jquery", "cs_task", "jquery/ui"], function ($, task) {
+        $(function () {
+
+            /**
+             * Display the tooltip on mouse over
+             */
+            $(document).on('mousemove', '.timeline-event', function (evt) {
+                var elt = evt.toElement;
+                var classnames = elt.getAttribute('class').split(' ');
+                if (classnames.length === 6) {
+                    $('#timeline-tooltip').html("");
+                    $('#timeline-tooltip').css({display: "block", top: (evt.pageY + 5) + "px", left: (evt.pageX + 5) + "px"});
+                    $('#timeline-tooltip').html(jsonData[classnames[4]][2]);
+                }
+            });
+
+            /**
+             * Hide the tooltip on mouse out
+             */
+            $(document).on('mouseout', '.timeline-event', function (evt) {
+                $('#timeline-tooltip').css({display: "none"});
+            });
+
+            /**
+             * Open the modal window with the task details on mouse click
+             */
+            $(document).on('click', '.timeline-event', function (evt) {
+                var viewUrl = '<?php echo $block->getViewUrl(); ?>';
+                var elt = evt.toElement;
+                var classnames = elt.getAttribute('class').split(' ');
+                if (classnames.length === 6) {
+                    var id = jsonData[classnames[4]][5];
+                    task.view(viewUrl, id);
+                }
+            });
+        });
+    });
+</script>
+
+

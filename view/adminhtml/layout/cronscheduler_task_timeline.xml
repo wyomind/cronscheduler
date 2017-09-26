@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+  Copyright © 2017 Wyomind. All rights reserved.
+  See LICENSE.txt for license details.
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Wyomind_CronScheduler::css/timeline.css"/>
+        <css src="Wyomind_CronScheduler::css/common.css"/>
+        <link src="Wyomind_CronScheduler::js/timeline.js"/>
+        <script src="//www.google.com/jsapi" src_type="url"/>
+    </head>
+    <body>
+        <!-- BUTTONS/ACTIONS SECTION -->
+        <referenceContainer name="page.main.actions">
+            <!-- RUN TASKS AND GENERATE SCHEDULE -->
+            <block class="Wyomind\CronScheduler\Block\Adminhtml\Task\Timeline\Actions" 
+                   name="cronscheduler_task_timeline_actions"/>
+            <!-- UPGRADE TO CRON SCHEDULER PRO -->
+            <block class="Wyomind\CronScheduler\Block\Adminhtml\UpgradeToPro" 
+                   name="cronscheduler_upgrade_to_pro"/>
+        </referenceContainer>
+        <!-- MAIN CONTENT -->
+        <referenceContainer name="content">
+            <!-- TIMELINE BLOCK -->
+            <block class="Wyomind\CronScheduler\Block\Adminhtml\Task\Timeline"
+                   name="cronscheduler_task_timeline"/>
+            <!-- TASK VIEW MODAL WINDOW -->
+            <block template="Wyomind_CronScheduler::task/view.phtml" 
+                   class="\Magento\Backend\Block\Template" 
+                   name="wyomind_cronscheduler_task_view"/>
+        </referenceContainer>
+    </body>
+</page>

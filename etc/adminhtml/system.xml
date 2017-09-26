@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+ Copyright © 2017 Wyomind. All rights reserved.
+ See LICENSE.txt for license details.
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        
+        <!-- master tab -->
+        
+        <tab id="wyomind" translate="label" sortOrder="1000000">
+            <label><![CDATA[<span class='wyomind-logo'>Wyomind</span>]]></label>
+        </tab>
+        
+        <!-- module tab -->
+        
+        <section id="cronscheduler" translate="label" sortOrder="130" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>Cron Scheduler</label>
+            <tab>wyomind</tab>
+            <resource>Wyomind_CronScheduler::config</resource>
+            
+            <!-- License -->
+            
+            <group id="license" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>License activation</label>
+                <field id="extension_version" translate="label" type="link" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Extension version</label>
+                </field>
+                <field id="activation_key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Activation key</label>
+                    <comment><![CDATA[<span class="notice">Enter your activation key and click on `save config`.</span>]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="activation_code" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>License code</label>
+                    <comment><![CDATA[<span class="notice">Enter your license code <b>only if prompted<b>.</span>]]></comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+            </group>
+            
+        </section>
+    </system>
+</config>

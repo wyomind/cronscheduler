@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © 2017 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php if ($block->isAllowed()) : /* only if allowed */ ?>
+    <div class="page-actions-placeholder"></div>
+    <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+        <div class="page-actions-inner" data-title="">
+            <div class="page-actions-buttons">                
+                <button id="schedule" title="<?php echo __("Run tasks & Generate Schedule"); ?>" type="button" class="action- scalable primary" onclick="location.href = '<?php echo $block->getGenerateScheduleUrl(); ?>';" data-ui-id="schedule-button">
+                    <span><?php echo __("Run tasks & Generate Schedule"); ?></span>
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif;

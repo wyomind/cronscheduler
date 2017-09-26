@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+  Copyright © 2017 Wyomind. All rights reserved.
+  See LICENSE.txt for license details.
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add 
+            id="Wyomind_CronScheduler::menu" 
+            title="Cron Scheduler" 
+            module="Wyomind_CronScheduler" 
+            sortOrder="100000" 
+            parent="Magento_Backend::system" 
+            resource="Wyomind_CronScheduler::menu"/>
+        <add 
+            id="Wyomind_CronScheduler::job_listing" 
+            title="Jobs Configuration" 
+            module="Wyomind_CronScheduler" 
+            sortOrder="99999" 
+            parent="Wyomind_CronScheduler::menu"
+            action="cronscheduler/job/listing" 
+            resource="Wyomind_CronScheduler::job_listing"/>
+        <add 
+            id="Wyomind_CronScheduler::task_listing" 
+            title="Tasks List" 
+            module="Wyomind_CronScheduler" 
+            sortOrder="100000" 
+            parent="Wyomind_CronScheduler::menu"
+            action="cronscheduler/task/listing" 
+            resource="Wyomind_CronScheduler::task_listing"/>
+        <add 
+            id="Wyomind_CronScheduler::task_timeline" 
+            title="Tasks Timeline" 
+            module="Wyomind_CronScheduler" 
+            sortOrder="100001" 
+            parent="Wyomind_CronScheduler::menu"
+            action="cronscheduler/task/timeline" 
+            resource="Wyomind_CronScheduler::task_timeline"/>
+    </menu>
+</config>
