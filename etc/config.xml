@@ -8,7 +8,7 @@
         <cronscheduler>
             <license>
                 <extension_label>Cron Scheduler</extension_label>
-                <extension_version>1.0.1.4</extension_version>
+                <extension_version>1.0.1.5</extension_version>
                 <extension_code>cs</extension_code>
                 <get_online_license>1</get_online_license>
             </license>

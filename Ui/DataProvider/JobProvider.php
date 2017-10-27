@@ -61,9 +61,9 @@ class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
     /**
      * Class constructor
-     * @param type $name
-     * @param type $primaryFieldName
-     * @param type $requestFieldName
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
      * @param \Magento\Framework\Filesystem\Directory\ReadFactory $directoryRead
      * @param \Magento\Framework\App\Filesystem\DirectoryList $directoryList
      * @param \Magento\Cron\Model\ConfigInterface $jobHelper

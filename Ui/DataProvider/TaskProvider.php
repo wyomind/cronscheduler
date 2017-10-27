@@ -22,9 +22,9 @@ class TaskProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
     /**
      * Class constructor
-     * @param type $name
-     * @param type $primaryFieldName
-     * @param type $requestFieldName
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
      * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $collectionFactory
      * @param array $meta
      * @param array $data

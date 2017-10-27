@@ -36,7 +36,7 @@ class ProcessCronQueueObserverM22 extends \Magento\Cron\Observer\ProcessCronQueu
     private $state;
 
     /**
-     * Class constructor
+     * 
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param \Magento\Cron\Model\ScheduleFactory $scheduleFactory
      * @param \Magento\Framework\App\CacheInterface $cache
@@ -46,7 +46,10 @@ class ProcessCronQueueObserverM22 extends \Magento\Cron\Observer\ProcessCronQueu
      * @param \Magento\Framework\ShellInterface $shell
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $dateTime
      * @param \Magento\Framework\Process\PhpExecutableFinderFactory $phpExecutableFinderFactory
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Magento\Framework\App\State $state
      * @param \Magento\Framework\Event\Manager $eventManager
+     * @param \Wyomind\CronScheduler\Helper\Task $taskHelper
      */
     public function __construct(
     \Magento\Framework\ObjectManagerInterface $objectManager,
@@ -63,8 +66,9 @@ class ProcessCronQueueObserverM22 extends \Magento\Cron\Observer\ProcessCronQueu
             \Magento\Framework\Event\Manager $eventManager,
             \Wyomind\CronScheduler\Helper\Task $taskHelper
     )
-    {
-        parent::__construct($objectManager, $scheduleFactory, $cache, $config, $scopeConfig, $request, $shell, $dateTime, $phpExecutableFinderFactory, $logger, $state);
+    {       
+        $construct= "__construct"; // in order to bypass the compiler
+        parent::$construct($objectManager, $scheduleFactory, $cache, $config, $scopeConfig, $request, $shell, $dateTime, $phpExecutableFinderFactory, $logger, $state);
         $this->logger = $logger; // because private
         $this->state = $state; // because private
         $this->_eventManager = $eventManager;

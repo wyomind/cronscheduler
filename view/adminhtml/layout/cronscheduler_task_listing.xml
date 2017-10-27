@@ -23,7 +23,7 @@
             <uiComponent name="cronscheduler_task_listing"/>
             <!-- TASK VIEW MODAL WINDOW -->
             <block template="Wyomind_CronScheduler::task/view.phtml" 
-                   class="\Magento\Backend\Block\Template" 
+                   class="Magento\Backend\Block\Template" 
                    name="wyomind_cronscheduler_task_view"/>
         </referenceContainer>
     </body>

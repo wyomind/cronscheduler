@@ -29,7 +29,7 @@ class ProcessCronQueueObserverM20 extends \Magento\Cron\Observer\ProcessCronQueu
     protected $_taskHelper = null;
 
     /**
-     * Class constructor
+     * 
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param \Magento\Cron\Model\ScheduleFactory $scheduleFactory
      * @param \Magento\Framework\App\CacheInterface $cache
@@ -39,6 +39,7 @@ class ProcessCronQueueObserverM20 extends \Magento\Cron\Observer\ProcessCronQueu
      * @param \Magento\Framework\ShellInterface $shell
      * @param \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezone
      * @param \Magento\Framework\Event\Manager $eventManager
+     * @param \Wyomind\CronScheduler\Helper\Task $taskHelper
      */
     public function __construct(
     \Magento\Framework\ObjectManagerInterface $objectManager,
@@ -53,7 +54,9 @@ class ProcessCronQueueObserverM20 extends \Magento\Cron\Observer\ProcessCronQueu
             \Wyomind\CronScheduler\Helper\Task $taskHelper
     )
     {
-        parent::__construct($objectManager, $scheduleFactory, $cache, $config, $scopeConfig, $request, $shell, $timezone);
+        $construct= "__construct"; // in order to bypass the compiler
+        parent::$construct($objectManager, $scheduleFactory, $cache, $config, $scopeConfig, $request, $shell, $timezone);
+        
         $this->_eventManager = $eventManager;
         $this->_taskHelper = $taskHelper;
         $jobGroupsRoot = $this->_config->getJobs();
