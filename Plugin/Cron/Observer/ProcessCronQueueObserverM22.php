@@ -7,7 +7,7 @@
 
 namespace Wyomind\CronScheduler\Plugin\Cron\Observer;
 
-class ProcessCronQueueObserverM22 extends \Magento\Cron\Observer\ProcessCronQueueObserver
+class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueObserver
 {
 
     /**

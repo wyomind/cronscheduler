@@ -82,9 +82,8 @@ class Listing extends \Symfony\Component\Console\Command\Command
 
             $configJobs = $this->_cronConfig->getJobs();
 
-
-            $data = [];
-            $max = [0, 0, 0, 0];
+            $table = $this->getHelperSet()->get('table');
+            $table->setHeaders(['Code', 'Instance', 'Schedule', 'Group']);
 
             foreach ($configJobs as $group => $jobs) {
                 foreach ($jobs as $code => $job) {
@@ -92,40 +91,17 @@ class Listing extends \Symfony\Component\Console\Command\Command
                     $method = $job['method'];
                     $schedule = (isset($job['schedule']) ? $job['schedule'] : "");
                     $itemData = [
-                        'code' => $code,
-                        'instance' => $instance . "::" . $method,
-                        'schedule' => $schedule,
-                        'group' => $group,
+                        $code,
+                        $instance . "::" . $method,
+                        $schedule,
+                        $group,
                     ];
-                    $max = [
-                        max(strlen($itemData['code']), $max[0]),
-                        max(strlen($itemData['group']), $max[1]),
-                        max(strlen($itemData['instance']), $max[2]),
-                        max(strlen($itemData['schedule']), $max[3]),
-                    ];
-                    $data[] = $itemData;
+                    $table->addRow($itemData);
                 }
             }
 
-            sort($data);
+            $table->render($output);
 
-            $output->writeln("");
-
-            $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s ", __("Code"), __("Group"), __("Method"), __("Schedule"));
-            $output->writeln($row);
-            $separator = sprintf("-%'-" . $max[0] . "s-+-%'-" . $max[1] . "s-+-%'-" . $max[2] . "s-+-%'-" . $max[3] . "s", "", "", "", "");
-            $output->writeln($separator);
-
-            $counter = 0;
-            $count = count($data);
-            foreach ($data as $item) {
-                $counter++;
-                $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s ", $item['code'], $item['group'], $item['instance'], $item['schedule']);
-                $output->writeln($row);
-                if ($count !== $counter) {
-                    $output->writeln($separator);
-                }
-            }
             $returnValue = \Magento\Framework\Console\Cli::RETURN_SUCCESS;
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $output->writeln($e->getMessage());

@@ -93,28 +93,26 @@ class Show extends \Symfony\Component\Console\Command\Command
             $this->_state->setAreaCode('adminhtml');
             $taskId = $input->getArgument(self::TASK_ID_ARG);
             $task = $this->_taskModelFactory->create()->load($taskId);
-            $item = $task->getData();
+            
 
-            $max = [
-                strlen($item['schedule_id']),
-                strlen($item['job_code']),
-                strlen($item['status']),
-                strlen($item['created_at']),
-                strlen($item['scheduled_at']),
-                strlen($item['executed_at']),
-                strlen($item['finished_at'])
-            ];
+            
+            $table = $this->getHelperSet()->get('table');
+            $table->setHeaders(['Id', 'Code', 'Status', 'Created at', 'Schedule at', 'Executed at', 'Finished at', 'Messages']);
 
-            $output->writeln("");
-            $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s | %-" . $max[4] . "s | %-" . $max[5] . "s | %-" . $max[6] . "s ", __("#"), __("Code"), __("Status"), __("Created at"), __("Scheduled at"), __("Executed at"), __("Finished at"));
-            $output->writeln($row);
-            $separator = sprintf("-%'-" . $max[0] . "s-+-%'-" . $max[1] . "s-+-%'-" . $max[2] . "s-+-%'-" . $max[3] . "s-+-%'-" . $max[4] . "s-+-%'-" . $max[5] . "s-+-%'-" . $max[6] . "s", "", "", "", "", "", "", "");
-            $output->writeln($separator);
-            $row = sprintf(" %-s | %-s | %-s | %-s | %-s | %-s | %-s ", $item['schedule_id'], $item['job_code'], $item['status'], $item['created_at'], $item['scheduled_at'], $item['executed_at'], $item['finished_at']);
-            $output->writeln($row);
-            $output->writeln("");
-            $output->writeln("Message:");
-            $output->writeln($item['messages']);
+                $itemData = [
+                    $task->getScheduleId(),
+                    $task->getJobCode(),
+                    $task->getStatus(),
+                    $task->getCreatedAt(),
+                    $task->getScheduledAt(),
+                    $task->getExecutedAt(),
+                    $task->getFinishedAt(),
+                    $task->getMessages()
+                ];
+                $table->addRow($itemData);
+
+            $table->render($output);
+            
             $returnValue = \Magento\Framework\Console\Cli::RETURN_SUCCESS;
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $output->writeln($e->getMessage());

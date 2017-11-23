@@ -80,49 +80,24 @@ class Listing extends \Symfony\Component\Console\Command\Command
         try {
             $this->_state->setAreaCode('adminhtml');
 
-            $data = [];
-            $max = [strlen("#"), strlen(__("Code")), strlen(__("Status")), strlen(__("Created at")), strlen(__("Scheduled at")), strlen(__("Executed at")), strlen(__("Finished at"))];
-
+            $table = $this->getHelperSet()->get('table');
+            $table->setHeaders(['Id', 'Code', 'Status', 'Created at', 'Schedule at', 'Executed at', 'Finished at']);
             foreach ($this->_taskCollection as $task) {
+
                 $itemData = [
-                    'id' => $task->getScheduleId(),
-                    'code' => $task->getJobCode(),
-                    'status' => $task->getStatus(),
-                    'created_at' => $task->getCreatedAt(),
-                    'scheduled_at' => $task->getScheduledAt(),
-                    'executed_at' => $task->getExecutedAt(),
-                    'finished_at' => $task->getFinishedAt()
+                    $task->getScheduleId(),
+                    $task->getJobCode(),
+                    $task->getStatus(),
+                    $task->getCreatedAt(),
+                    $task->getScheduledAt(),
+                    $task->getExecutedAt(),
+                    $task->getFinishedAt()
                 ];
-
-                $max = [
-                    max(strlen($itemData['id']), $max[0]),
-                    max(strlen($itemData['code']), $max[1]),
-                    max(strlen($itemData['status']), $max[2]),
-                    max(strlen($itemData['created_at']), $max[3]),
-                    max(strlen($itemData['scheduled_at']), $max[4]),
-                    max(strlen($itemData['executed_at']), $max[5]),
-                    max(strlen($itemData['finished_at']), $max[6]),
-                ];
-                $data[] = $itemData;
+                $table->addRow($itemData);
             }
 
-            $output->writeln("");
+            $table->render($output);
 
-            $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s | %-" . $max[4] . "s | %-" . $max[5] . "s | %-" . $max[6] . "s ", __("#"), __("Code"), __("Status"), __("Created at"), __("Scheduled at"), __("Executed at"), __("Finished at"));
-            $output->writeln($row);
-            $separator = sprintf("-%'-" . $max[0] . "s-+-%'-" . $max[1] . "s-+-%'-" . $max[2] . "s-+-%'-" . $max[3] . "s-+-%'-" . $max[4] . "s-+-%'-" . $max[5] . "s-+-%'-" . $max[6] . "s", "", "", "", "", "", "", "");
-            $output->writeln($separator);
-
-            $counter = 0;
-            $count = count($data);
-            foreach ($data as $item) {
-                $counter++;
-                $row = sprintf(" %-" . $max[0] . "s | %-" . $max[1] . "s | %-" . $max[2] . "s | %-" . $max[3] . "s | %-" . $max[4] . "s | %-" . $max[5] . "s | %-" . $max[6] . "s ", $item['id'], $item['code'], $item['status'], $item['created_at'], $item['scheduled_at'], $item['executed_at'], $item['finished_at']);
-                $output->writeln($row);
-                if ($count !== $counter) {
-                    $output->writeln($separator);
-                }
-            }
             $returnValue = \Magento\Framework\Console\Cli::RETURN_SUCCESS;
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $output->writeln($e->getMessage());

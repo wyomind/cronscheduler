@@ -1,0 +1,16 @@
+#### Post-installation instructions
+
+##### Magento 2.2
+
+> The extension is already compatible with Magento 2.2
+
+##### Magento 2.1
+
+    $ cp app/code/Wyomind/CronScheduler/Plugin/Cron/Observer/ProcessCronQueueObserverM21.php app/code/Wyomind/CronScheduler/Plugin/Cron/Observer/ProcessCronQueueObserver.php
+
+##### Magento 2.0
+
+    $ cp app/code/Wyomind/CronScheduler/Plugin/Cron/Observer/ProcessCronQueueObserverM20.php app/code/Wyomind/CronScheduler/Plugin/Cron/Observer/ProcessCronQueueObserver.php
+    $ cp app/code/Wyomind/CronScheduler/view/adminhtml/ui_component/cronscheduler_job_listing_Mage20.xml app/code/Wyomind/CronScheduler/view/adminhtml/ui_component/cronscheduler_job_listing.xml
+    $ cp app/code/Wyomind/CronScheduler/view/adminhtml/ui_component/cronscheduler_task_listing_Mage20.xml app/code/Wyomind/CronScheduler/view/adminhtml/ui_component/cronscheduler_task_listing.xml
+
