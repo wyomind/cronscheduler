@@ -20,27 +20,6 @@
             <tab>wyomind</tab>
             <resource>Wyomind_CronScheduler::config</resource>
             
-            <!-- License -->
-            
-            <group id="license" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>License activation</label>
-                <field id="extension_version" translate="label" type="link" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Extension version</label>
-                </field>
-                <field id="activation_key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Activation key</label>
-                    <comment><![CDATA[<span class="notice">Enter your activation key and click on `save config`.</span>]]></comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                    <frontend_model>Wyomind\Core\Block\Adminhtml\System\Config\Form\Field\Encrypted</frontend_model>
-                </field>
-                <field id="activation_code" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Activation code</label>
-                    <comment><![CDATA[<span class="notice">Enter your license code <b>only if prompted<b>.</span>]]></comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                    <frontend_model>Wyomind\Core\Block\Adminhtml\System\Config\Form\Field\Encrypted</frontend_model>
-                </field>
-            </group>
-            
         </section>
     </system>
 </config>
