@@ -227,5 +227,4 @@ class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueOb
             parent::saveSchedule($jobCode, $cronExpression, $timeInterval, $exists);
         }
     }
-
 }
