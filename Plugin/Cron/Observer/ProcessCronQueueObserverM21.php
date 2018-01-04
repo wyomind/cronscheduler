@@ -228,6 +228,4 @@ class ProcessCronQueueObserver extends \Magento\Cron\Observer\ProcessCronQueueOb
         }
     }
 
-} {
-    
 }
