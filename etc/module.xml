@@ -4,9 +4,9 @@
   See LICENSE.txt for license details.
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/Magento/Module/etc/module.xsd">
-    <module name="Wyomind_CronScheduler" setup_version="1.3.0">
+    <module name="Wyomind_CronScheduler" setup_version="1.3.0.1">
         <sequence>
-            <module name="Wyomind_Core"/>
+            <module name="Magento_Cron"/>
         </sequence>
     </module>
 </config>
