@@ -1,6 +1,7 @@
+<?php // @codingStandardsIgnoreFile ?>
 <?php
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 ?>
@@ -9,8 +10,8 @@
     <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
         <div class="page-actions-inner" data-title="">
             <div class="page-actions-buttons">                
-                <button id="schedule" title="<?php echo __("Run tasks & Generate Schedule"); ?>" type="button" class="action- scalable primary" onclick="location.href = '<?php echo $block->getGenerateScheduleUrl(); ?>';" data-ui-id="schedule-button">
-                    <span><?php echo __("Run tasks & Generate Schedule"); ?></span>
+                <button id="schedule" title="<?= /* @noEscape */ __("Run tasks & Generate Schedule"); ?>" type="button" class="action- scalable primary" onclick="location.href = '<?= /* @noEscape */ $block->getGenerateScheduleUrl(); ?>';" data-ui-id="schedule-button">
+                    <span><?= /* @noEscape */ __("Run tasks & Generate Schedule"); ?></span>
                 </button>
             </div>
         </div>

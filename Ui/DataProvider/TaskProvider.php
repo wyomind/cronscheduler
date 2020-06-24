@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2017 Magento. All rights reserved.
  * See LICENSE.txt for license details.
@@ -7,14 +6,12 @@
 
 namespace Wyomind\CronScheduler\Ui\DataProvider;
 
-
 /**
  * Task provider for the tasks listing
  * @version 1.0.0
  */
 class TaskProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-
     /**
      * @var \Wyomind\CronScheduler\Model\ResourceModel\Task\Collection
      */
@@ -40,5 +37,4 @@ class TaskProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->collection = $collectionFactory->create();
     }
-
 }

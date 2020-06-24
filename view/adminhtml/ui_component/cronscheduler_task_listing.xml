@@ -83,7 +83,7 @@
                         <item name="url" xsi:type="url" path="cronscheduler/task/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete tasks</item>
-                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected tasks?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected tasks?</item>
                         </item>
                     </item>
                 </argument>
@@ -164,7 +164,7 @@
                 </item>
             </argument>
         </column>
-        <column name="created_at">
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -176,7 +176,7 @@
                 </item>
             </argument>
         </column>
-        <column name="scheduled_at">
+        <column name="scheduled_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -188,7 +188,7 @@
                 </item>
             </argument>
         </column>
-        <column name="executed_at">
+        <column name="executed_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -200,7 +200,7 @@
                 </item>
             </argument>
         </column>
-        <column name="finished_at">
+        <column name="finished_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>

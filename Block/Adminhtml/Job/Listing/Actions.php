@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Block\Adminhtml\Job\Listing;
  */
 class Actions extends \Magento\Backend\Block\Template
 {
-
     /**
      * @var \Magento\Framework\Authorization
      */

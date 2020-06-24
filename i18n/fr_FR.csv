@@ -1,7 +1,7 @@
 "Message: ","Message: "
 "File: ","Fichier: "
 "Line: ","Ligne: "
-"Upgrade to <b>Cron Sheduler Pro</b>","Mettre à jour vers <b>Cron Sheduler Pro</b>"
+"Upgrade to <b>Cron Scheduler Pro</b>","Mettre à jour vers <b>Cron Scheduler Pro</b>"
 "License activation","Activation de la licence"
 "Extension version","Version de l'extension"
 "Activation key","Clef d'activation"
@@ -11,7 +11,7 @@
 Instance,Instance
 Delete,Supprimer
 "Delete tasks","Supprimer des tâches"
-"Are you sure you wan't to delete selected tasks?","Êtes-vous sûr de vouloir supprimer les tâches sélectionnés ?"
+"Are you sure you want to delete selected tasks?","Êtes-vous sûr de vouloir supprimer les tâches sélectionnés ?"
 ID,ID
 Call,Appel
 "Original Schedule","Progammation originale"

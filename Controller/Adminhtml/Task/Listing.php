@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Task;
  */
 class Listing extends \Wyomind\CronScheduler\Controller\Adminhtml\Task
 {
-
     /**
      * @var string
      */
@@ -31,5 +29,4 @@ class Listing extends \Wyomind\CronScheduler\Controller\Adminhtml\Task
         $resultPage->addBreadcrumb(__('Cron Scheduler'), __('Cron Scheduler'));
         return $resultPage;
     }
-
 }

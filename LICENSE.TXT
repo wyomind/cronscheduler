@@ -1,0 +1,77 @@
+Terms and Conditions of Sale
+
+Purchasing any product (Software) from the Wyomind.com web-site means buyer agree to the following statements (Agreement):
+
+    1. Wyomind.com is the copyright holder of the Software. The Software or a portion of it is copyrightable matter and is liable to be protected by the law. Any activity that infringes the terms of this Agreement or violates copyright law will be prosecuted according to the current law.
+    2. Wyomind.com reserves the right to revoke a license if the Terms of the License Agreement are breached. Wyomind.com also reserves the right to revoke any invalid license.
+    3. None of the Software, either whole or parts thereof can be used in any other software or product or web-site.
+    4. The Software and supporting Documentation may not be given, sold, distributed, sub-licensed, rented, leased or lent to anyone.  Neither can the Software be placed on a server so that it is accessible via a  public network such as the Internet for distribution purposes.
+    5. Wyomind.com reserves the right to publish a selected list of buyers of its Software.
+    6. Wyomind.com is not liable for any damages caused to the buyer of its Software.  This includes but is not limited to, any loss of profits, incidents or consequences and any problems concerning their data or their business arising out of the use or inability to use this Software
+    7. Wyomind.com is not liable for any illegal use of its Software or liable for any prosecution arising from the illegal use of its Software.
+
+
+Licenses
+
+When purchasing a license from Wyomind.com, the license holder can use it for one live domain and as many staging, dev, or local domains he needs. In addition, the license is valid for an unlimited period of time. One license assigned to a domain is irrevocably linked to that domain and cannot be transferred to another domain, except in the two following cases:
+
+    -  A transfer of the license can be performed from a staging, dev or local domain to a live domain
+    - The license can be transferred if the old domain redirects definitively to the new one (301 permanent redirection)
+
+Upgrades
+
+Wyomind.com continuously tries to improve its products so as to offer the buyer the best functionality and usability.  Such enhancement upgrades will be available (to license holders only). 
+
+Wyomind.com offers new license holders free upgrades to all products for a 3-month period from the date of purchase.
+Free upgrades are made available to the license holder through their account created on the Wyomind.com web-site at the time of their first purchase. 
+
+Paid upgrades are available at any time : when buying one month of upgrade, the license holder will be able to download and upgrade the version of the extension during one month from the date of purchase as when buying one year of upgrade, that period will last one year. This principle also applies to the additional month(s) a license holder can get for free after writing a review.
+
+Download
+
+All products are available for purchase and download.  Download is possible once payment has been accepted and verified.  Payment is accepted using Paypal.  If a problem arises with a payment, buyers are encouraged to check the payment status in their Paypal accounts before contacting Wyomind.com
+
+Refunds
+
+If for any reason buyers are dissatisfied with their purchase, Wyomind.com offers a full refund on ALL its products strictly within a 14-day period.  Any refund request must be made within 14 days from the date of purchase.  Refund requests can only be accepted via email and must include the 'license activation key'. Any refund request received after this period will not be accepted. Please note, Wyomind.com does not provide any refunds on installation and customization services. 
+
+Support
+
+Wyomind is keen to obtain 100% of customer satisfaction.
+
+Any visitor of www.wyomind.com can send information requests or presale questions to Wyomind from the Enquiries form or the online chat service available on each page. Users must be aware that these services are in no case technical support.
+
+Any customer who purchased at least one license of a software proposed by Wyomind receives free support. Customer support is available from the user's account in My account > My tickets. Customers must provide the Wyomind team with details (screenshots via links, settings, steps followed etc...) and should not open a new ticket to answer to a previous one.
+
+Support service is not limited in time. It includes a response time under 24 hours to any support request sent to Wyomind. This response time is applied during working days. Wyomind reserves the right to exceptionally exceed that response time limit and commits itself to notifying customers of new estimated response time.
+
+In order to offer the best customer support, each support request for Wyomind must be sent from the account of the user in My account > My tickets. The support service only applies to software edited by Wyomind and to software for which the user has a valid license. Wyomind reserves the right to give no answer to support requests that would not comply with the above clauses.
+
+Any support request that would need the Wyomind team to work on the customer's website/server can only be done if this website/server is accessible via FTP and if the Magento backoffice is accessible via HTTP. The customer must provide the appropriate access permissions. In the case where it is required to connect remotely or via a virtual desktop, the operation will only be carried out via Teamviewer and will be charged on the basis of Wyomind's current hourly rate.
+
+Privacy Policy
+
+Wyomind.com may collect some personal information relating to you such as your name, email address, billing address as well as all support conversations transcripts. However Wyomind.com does not keep any of your payment information (credit cart number, bank account number or IBAN) following a transaction.
+
+Wyomind.com is committed to ensuring that sensitive data is totally secure. In order to prevent disclosure, wyomind.com has put in place suitable procedures to secure the information collected online.
+
+Whenever you want, you may choose to stop the collection of your personal data and delete them by sending an email at https://www.wyomind.com/contact.html.
+Product Disclaimer
+
+Software downloaded from the Wyomind.com web-site is provided 'as is' without warranty of any kind, either express or implied, including, but not limited to, the implied warranties of fitness for a purpose, or the warranty of non-infringement. Without limiting the foregoing, Wyomind.com makes no warranty that:
+
+
+- the Software will meet its requirements
+- the Software will be uninterrupted, timely, secure or error-free
+- the results that may be obtained from the use of the Software will be effective, accurate or reliable
+- the quality of the Software will meet its expectations
+- any errors in the software obtained from the Wyomind.com web-site will be corrected
+
+The Software and the Documentation made available on the Wyomind.com web-site could include technical or other mistakes, inaccuracies or typographical errors and may be out of date. Wyomind makes no commitment to update such materials nor assumes any responsibility for errors or omissions therein.
+
+Wyomind.com may make changes to the Software or the Documentation made available on its web-site. 
+
+In no event shall Wyomind be liable to the buyer or any third parties for any special, punitive, incidental, indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation, those resulting from loss of use, data or profits, whether or not Wyomind has been advised of the possibility of such damages, and on any theory of liability, arising out of or in connection with the use of this Software.
+
+The use of the Software downloaded through the Wyomind.com web-site is done at its own discretion and risk and with agreement that the buyer will be solely responsible for any damage to its computer system or the loss of data that results from such activities. No advice or information, whether oral or written, obtained by the buyer from Wyomind or from the Wyomind.com web-site shall create any warranty for the Software.
+

@@ -1,5 +1,5 @@
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -26,8 +26,8 @@ define(["jquery", "Magento_Ui/js/modal/modal"], function ($) {
                 buttons: []
             });
 
-            var indices = new Array("schedule_id", "job_code", "status", "created_at", "scheduled_at", "executed_at", "finished_at", "messages", "origin", "user", "ip", "error_file", "error_line");
-            for (var indice in indices) {
+            var indices = ["schedule_id", "job_code", "status", "created_at", "scheduled_at", "executed_at", "finished_at", "messages", "origin", "user", "ip", "error_file", "error_line"];
+            for (var indice = 0; indice < indices.length; indice++) {
                 $('#task-view #tr-task-' + indices[indice]).css({display: "none"});
             }
             $('#task-view #task-status').attr("class", "");
@@ -46,7 +46,7 @@ define(["jquery", "Magento_Ui/js/modal/modal"], function ($) {
                         $("#task-view #error").html("");
 
                         if (typeof data.schedule_id !== "undefined") {
-                            for (var indice in indices) {
+                            for (var indice = 0; indice < indices.length; indice++) {
                                 if (indices[indice] !== "status") {
                                     $('#task-view #task-' + indices[indice]).html(data[indices[indice]]);
                                 }
@@ -64,8 +64,6 @@ define(["jquery", "Magento_Ui/js/modal/modal"], function ($) {
                             $('#task-view #tr-task-error_file').css({display: "none"});
                             $('#task-view #tr-task-error_line').css({display: "none"});
                         }
-
-
 
                         $('#task-view #task-status').html(data['status'][1]);
                         $('#task-view #task-status').attr("class", "grid-severity-" + data['status'][0]);

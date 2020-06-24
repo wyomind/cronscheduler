@@ -1,7 +1,6 @@
 <?php
-
-/* *
- * Copyright © 2016 Wyomind. All rights reserved.
+/**
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -27,11 +26,10 @@ namespace Wyomind\CronScheduler\Console\Command\Job;
  */
 class Listing extends \Symfony\Component\Console\Command\Command
 {
-
     /**
      * @var \Magento\Cron\Model\ConfigInterface
      */
-    protected $_cronConfig = null;
+    protected $_cronConfigFactory = null;
 
     /**
      * @var \Magento\Framework\App\State
@@ -40,16 +38,16 @@ class Listing extends \Symfony\Component\Console\Command\Command
 
     /**
      * Class constructor
-     * @param \Magento\Cron\Model\ConfigInterface $cronConfig
+     * @param \Magento\Cron\Model\ConfigFactory $cronConfigFactory
      * @param \Magento\Framework\App\State $state
      */
     public function __construct(
-    \Magento\Cron\Model\ConfigInterface $cronConfig,
-            \Magento\Framework\App\State $state
+        \Magento\Cron\Model\ConfigFactory $cronConfigFactory,
+        \Magento\Framework\App\State $state
     )
     {
         $this->_state = $state;
-        $this->_cronConfig = $cronConfig;
+        $this->_cronConfigFactory = $cronConfigFactory;
         parent::__construct();
     }
 
@@ -71,18 +69,16 @@ class Listing extends \Symfony\Component\Console\Command\Command
      * @return int \Magento\Framework\Console\Cli::RETURN_FAILURE or \Magento\Framework\Console\Cli::RETURN_SUCCESS
      */
     protected function execute(
-    \Symfony\Component\Console\Input\InputInterface $input,
-            \Symfony\Component\Console\Output\OutputInterface $output
+        \Symfony\Component\Console\Input\InputInterface $input,
+        \Symfony\Component\Console\Output\OutputInterface $output
     )
     {
-
-
         try {
             $this->_state->setAreaCode('adminhtml');
 
-            $configJobs = $this->_cronConfig->getJobs();
+            $configJobs = $this->_cronConfigFactory->create()->getJobs();
 
-            $table = $this->getHelperSet()->get('table');
+            $table = new \Symfony\Component\Console\Helper\Table($output);
             $table->setHeaders(['Code', 'Instance', 'Schedule', 'Group']);
 
             foreach ($configJobs as $group => $jobs) {
@@ -108,8 +104,6 @@ class Listing extends \Symfony\Component\Console\Command\Command
             $returnValue = \Magento\Framework\Console\Cli::RETURN_FAILURE;
         }
 
-
         return $returnValue;
     }
-
 }

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -30,7 +29,6 @@ namespace Wyomind\CronScheduler\Console\Command\Task;
  */
 class Show extends \Symfony\Component\Console\Command\Command
 {
-
     /**
      * Command line argument name
      */
@@ -52,8 +50,8 @@ class Show extends \Symfony\Component\Console\Command\Command
      * @param \Magento\Framework\App\State $state
      */
     public function __construct(
-    \Magento\Cron\Model\ScheduleFactory $taskModelFactory,
-            \Magento\Framework\App\State $state
+        \Magento\Cron\Model\ScheduleFactory $taskModelFactory,
+        \Magento\Framework\App\State $state
     )
     {
         $this->_state = $state;
@@ -83,33 +81,33 @@ class Show extends \Symfony\Component\Console\Command\Command
      * @return int \Magento\Framework\Console\Cli::RETURN_FAILURE or \Magento\Framework\Console\Cli::RETURN_SUCCESS
      */
     protected function execute(
-    \Symfony\Component\Console\Input\InputInterface $input,
-            \Symfony\Component\Console\Output\OutputInterface $output
+        \Symfony\Component\Console\Input\InputInterface $input,
+        \Symfony\Component\Console\Output\OutputInterface $output
     )
     {
-
-
         try {
-            $this->_state->setAreaCode('adminhtml');
+            try {
+                $this->_state->setAreaCode('adminhtml');
+            } catch (\Exception $e) {
+
+            }
             $taskId = $input->getArgument(self::TASK_ID_ARG);
             $task = $this->_taskModelFactory->create()->load($taskId);
-            
 
-            
-            $table = $this->getHelperSet()->get('table');
+            $table = new \Symfony\Component\Console\Helper\Table($output);
             $table->setHeaders(['Id', 'Code', 'Status', 'Created at', 'Schedule at', 'Executed at', 'Finished at', 'Messages']);
 
-                $itemData = [
-                    $task->getScheduleId(),
-                    $task->getJobCode(),
-                    $task->getStatus(),
-                    $task->getCreatedAt(),
-                    $task->getScheduledAt(),
-                    $task->getExecutedAt(),
-                    $task->getFinishedAt(),
-                    $task->getMessages()
-                ];
-                $table->addRow($itemData);
+            $itemData = [
+                $task->getScheduleId(),
+                $task->getJobCode(),
+                $task->getStatus(),
+                $task->getCreatedAt(),
+                $task->getScheduledAt(),
+                $task->getExecutedAt(),
+                $task->getFinishedAt(),
+                $task->getMessages()
+            ];
+            $table->addRow($itemData);
 
             $table->render($output);
             
@@ -119,8 +117,6 @@ class Show extends \Symfony\Component\Console\Command\Command
             $returnValue = \Magento\Framework\Console\Cli::RETURN_FAILURE;
         }
 
-
         return $returnValue;
     }
-
 }

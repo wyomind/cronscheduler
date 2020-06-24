@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Ui\Component\TaskListing\Column\Status;
  */
 class Options implements \Magento\Framework\Data\OptionSourceInterface
 {
-
     /**
      * @var array
      */
@@ -51,5 +49,4 @@ class Options implements \Magento\Framework\Data\OptionSourceInterface
         }
         return $this->options;
     }
-
 }

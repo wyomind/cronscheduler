@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2019 Wyomind. All rights reserved.
+  ~ See LICENSE.txt for license details.
+  -->
+<!-- configuration file used for the Wyomind's demo store: https://demo2.wyomind.com -->
+<config>
+    <login>CronScheduler</login>
+    <password>CronScheduler123</password>
+    <acl>
+        {{system/config}}
+        Magento_Backend::system
+        Wyomind_CronScheduler::global
+        Wyomind_CronScheduler::menu
+        Wyomind_CronScheduler::job_listing
+        Wyomind_CronScheduler::task_listing
+        Wyomind_CronScheduler::task_timeline
+        Wyomind_CronScheduler::task_massdelete
+        Wyomind_CronScheduler::generate_schedule
+        Wyomind_CronScheduler::config
+    </acl>
+    <scenarii>
+        <scenario type="backend" id="job_config" default="1">
+            <label>Jobs Configuration</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">cronscheduler/job/listing</param>
+                </action>
+            </actions>
+        </scenario>
+        <scenario type="backend" id="tasks">
+            <label>Tasks</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">cronscheduler/task/listing</param>
+                </action>
+            </actions>
+        </scenario>
+        <scenario type="backend" id="timeline">
+            <label>Timeline</label>
+            <comment><![CDATA[]]></comment>
+            <actions>
+                <action type="landing_page">
+                    <param name="url">cronscheduler/task/timeline</param>
+                </action>
+            </actions>
+        </scenario>
+    </scenarii>
+</config>

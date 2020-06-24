@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,17 +12,20 @@ namespace Wyomind\CronScheduler\Block\Adminhtml;
  */
 class UpgradeToPro extends \Magento\Backend\Block\Template
 {
-
+    /**
+     * @var \Magento\Framework\Module\ModuleList|null
+     */
     protected $_moduleList = null;
     
     /**
      * Class constructor
      * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Module\ModuleList $moduleList
      * @param array $data
      */
     public function __construct(
-    \Magento\Backend\Block\Template\Context $context,
-            \Magento\Framework\Module\ModuleList $moduleList,
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Module\ModuleList $moduleList,
             array $data = []
     )
     {
@@ -36,9 +38,8 @@ class UpgradeToPro extends \Magento\Backend\Block\Template
      * Using the pro version ?
      * @return type
      */
-    public function isPro() {
+    public function isPro()
+    {
         return $this->_moduleList->has('Wyomind_CronSchedulerPro');
     }
-    
-
 }

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Model\ResourceModel\Task;
  */
 class Collection extends \Magento\Cron\Model\ResourceModel\Schedule\Collection
 {
-
     /**
      * @var string
      */
@@ -70,5 +68,4 @@ class Collection extends \Magento\Cron\Model\ResourceModel\Schedule\Collection
             return null;
         }
     }
-
 }

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -12,7 +11,6 @@ namespace Wyomind\CronScheduler\Helper;
  */
 class Job extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
     /**
      * @var \Magento\Cron\Model\ConfigInterface
      */
@@ -24,8 +22,8 @@ class Job extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\Cron\Model\ConfigInterface $cronConfig
      */
     public function __construct(
-    \Magento\Framework\App\Helper\Context $context,
-            \Magento\Cron\Model\ConfigInterface $cronConfig
+        \Magento\Framework\App\Helper\Context $context,
+        \Magento\Cron\Model\ConfigInterface $cronConfig
     )
     {
         $this->_cronConfig = $cronConfig;
@@ -34,7 +32,7 @@ class Job extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * Get the job data
-     * (independant method in order to be able to plugin it in the Pro version)
+     * (independent method in order to be able to plugin it in the Pro version)
      * @return array
      */
     public function getJobData()
@@ -57,5 +55,4 @@ class Job extends \Magento\Framework\App\Helper\AbstractHelper
         }
         return $data;
     }
-
 }

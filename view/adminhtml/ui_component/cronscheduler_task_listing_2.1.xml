@@ -32,23 +32,42 @@
             </item>
         </argument>
     </dataSource>
-    
-    <container name="listing_top">
+    <listingToolbar name="listing_top">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+                <item name="sticky" xsi:type="boolean">false</item>
             </item>
         </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="columnsProvider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.task_columns</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
                     <item name="childDefaults" xsi:type="array">
                         <item name="provider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                        </item>
                     </item>
                 </item>
             </argument>
         </filters>
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                    <item name="selectProvider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.task_columns.schedule_id</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                </item>
+            </argument>
+        </paging>
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -64,22 +83,30 @@
                         <item name="url" xsi:type="url" path="cronscheduler/task/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete tasks</item>
-                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected tasks?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected tasks?</item>
                         </item>
                     </item>
                 </argument>
             </action>
         </massaction>
-        <paging name="listing_paging">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.task_columns.schedule_id</item>
-                    <item name="displayArea" xsi:type="string">bottom</item>
-                </item>
-            </argument>
-        </paging>
-    </container>
+    </listingToolbar>
     <columns name="task_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.bookmarks</item>
+                    <item name="namespace" xsi:type="string">current</item>
+                </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="controlVisibility" xsi:type="boolean">true</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">cronscheduler_task_listing.cronscheduler_task_listing.listing_top.bookmarks</item>
+                        <item name="root" xsi:type="string">columns.${ $.index }</item>
+                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+                    </item>                
+                </item>
+            </item>
+        </argument>
         <selectionsColumn name="schedule_ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -137,7 +164,7 @@
                 </item>
             </argument>
         </column>
-        <column name="created_at">
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -149,7 +176,7 @@
                 </item>
             </argument>
         </column>
-        <column name="scheduled_at">
+        <column name="scheduled_at" class="Magento\Ui\Component\Listing\Columns\Date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
@@ -196,4 +223,3 @@
         </actionsColumn>
     </columns>
 </listing>
-
