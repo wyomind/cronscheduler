@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Job;
  */
 class GenerateSchedule extends \Magento\Backend\App\Action
 {
-
     /**
      * @var string
      */
@@ -35,18 +33,17 @@ class GenerateSchedule extends \Magento\Backend\App\Action
     public $resultForwardFactory = null;
 
     /**
-     * Class constructor
+     * GenerateSchedule class constructor.
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Cron\Observer\ProcessCronQueueObserver $cron
      * @param \Magento\Framework\Event\Observer $observer
      * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
-     * @param array $data
      */
     public function __construct(
-    \Magento\Backend\App\Action\Context $context,
-            \Magento\Cron\Observer\ProcessCronQueueObserver $cron,
-            \Magento\Framework\Event\Observer $observer,
-            \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Cron\Observer\ProcessCronQueueObserver $cron,
+        \Magento\Framework\Event\Observer $observer,
+        \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
     )
     {
         $this->cron = $cron;
@@ -76,5 +73,4 @@ class GenerateSchedule extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Wyomind_CronScheduler::'.$this->_aclResource);
     }
-
 }

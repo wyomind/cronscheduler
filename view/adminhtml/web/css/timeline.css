@@ -1,5 +1,5 @@
 /*
- Copyright © 2017 Wyomind. All rights reserved.
+ Copyright © 2019 Wyomind. All rights reserved.
  See LICENSE.txt for license details.
 */
 div.timeline-frame {
@@ -42,12 +42,6 @@ div.timeline-axis-text {
     color: #4d4d4d;
     padding: 3px;
     white-space: nowrap;
-}
-
-div.timeline-axis-text-minor {
-}
-
-div.timeline-axis-text-major {
 }
 
 div.timeline-event {
@@ -164,7 +158,7 @@ div.timeline-navigation {
     border-radius: 2px;
     box-sizing: border-box;
     color: #808080;
-    font-family: arial;
+    font-family: Arial, sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
@@ -185,38 +179,14 @@ div.timeline-navigation-move-right {
     width: 36px;
 }
 
-div.timeline-navigation-new {
-    /*background: url('img/16/new.png') no-repeat center;*/
-}
-
 /* separator between new and navigation buttons */
 div.timeline-navigation-new-line {
     border-right: 1px solid #bebebe;
 }
 
-div.timeline-navigation-delete {
-    /*background: url('img/16/delete.png') no-repeat center;*/
-}
-
-div.timeline-navigation-zoom-in {
-    /*background: url('img/16/zoomin.png') no-repeat center;*/
-}
-
-div.timeline-navigation-zoom-out {
-    /*background: url('img/16/zoomout.png') no-repeat center;*/
-}
-
-div.timeline-navigation-move-left {
-    /*background: url('img/16/moveleft.png') no-repeat center;*/
-}
-
-div.timeline-navigation-move-right {
-    /*background: url('img/16/moveright.png') no-repeat center;*/
-}
-
 div.timeline-event {
     min-width: 1px;
-    padding: 0px;
+    padding: 0;
     height: 36px;
 }
 
@@ -224,6 +194,7 @@ div.timeline-event.success {
     background:green;
     border-color:green;
 }
+
 div.timeline-event.missed,
 div.timeline-event.error {
     background:red;
@@ -239,7 +210,7 @@ div.timeline-event.pending {
     border-color:#ea992e;
 }
 .timeline-content {
-    border: 0px solid transparent !important;
+    border: 0 solid transparent !important;
 }
 
 #timeline-tooltip {

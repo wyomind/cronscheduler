@@ -1,9 +1,9 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
+
 namespace Wyomind\CronScheduler\Controller\Adminhtml\Task;
 
 /**
@@ -12,7 +12,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Task;
  */
 class Timeline extends \Wyomind\CronScheduler\Controller\Adminhtml\Task
 {
-
     /**
      * @var string
      */
@@ -30,5 +29,4 @@ class Timeline extends \Wyomind\CronScheduler\Controller\Adminhtml\Task
         $resultPage->addBreadcrumb(__('CronScheduler'), __('CronScheduler'));
         return $resultPage;
     }
-
 }

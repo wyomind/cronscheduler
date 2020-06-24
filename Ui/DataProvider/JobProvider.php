@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2017 Magento. All rights reserved.
  * See LICENSE.txt for license details.
@@ -13,14 +12,13 @@ namespace Wyomind\CronScheduler\Ui\DataProvider;
  */
 class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-
     /**
-     * @var integer
+     * @var int
      */
     protected $_size = 20;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $_offset = 1;
 
@@ -60,25 +58,25 @@ class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     public $jobHelper = null;
 
     /**
-     * Class constructor
+     * JobProvider class constructor.
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
      * @param \Magento\Framework\Filesystem\Directory\ReadFactory $directoryRead
      * @param \Magento\Framework\App\Filesystem\DirectoryList $directoryList
-     * @param \Magento\Cron\Model\ConfigInterface $jobHelper
+     * @param \Wyomind\CronScheduler\Helper\Job $jobHelper
      * @param array $meta
      * @param array $data
      */
     public function __construct(
-    $name,
-            $primaryFieldName,
-            $requestFieldName,
-            \Magento\Framework\Filesystem\Directory\ReadFactory $directoryRead,
-            \Magento\Framework\App\Filesystem\DirectoryList $directoryList,
-            \Wyomind\CronScheduler\Helper\Job $jobHelper,
-            array $meta = [],
-            array $data = []
+        $name,
+        $primaryFieldName,
+        $requestFieldName,
+        \Magento\Framework\Filesystem\Directory\ReadFactory $directoryRead,
+        \Magento\Framework\App\Filesystem\DirectoryList $directoryList,
+        \Wyomind\CronScheduler\Helper\Job $jobHelper,
+        array $meta = [],
+        array $data = []
     )
     {
         $this->_directoryRead = $directoryRead;
@@ -89,13 +87,10 @@ class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
     /**
      * Set the limit of the collection
-     * @param type $offset
-     * @param type $size
+     * @param int $offset
+     * @param int $size
      */
-    public function setLimit(
-    $offset,
-            $size
-    )
+    public function setLimit($offset, $size)
     {
         $this->_size = $size;
         $this->_offset = $offset;
@@ -103,14 +98,11 @@ class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
     /**
      * Get the collection
-     * @return type
+     * @return array
      */
     public function getData()
     {
-
         $data = array_values($this->jobHelper->getJobData());
-
-        
         $totalRecords = count($data);
 
         // sorting
@@ -159,16 +151,12 @@ class JobProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
     /**
      * Set the order of the collection
-     * @param type $field
-     * @param type $direction
+     * @param string $field
+     * @param string $direction
      */
-    public function addOrder(
-    $field,
-            $direction
-    )
+    public function addOrder($field, $direction)
     {
         $this->_sortField = $field;
         $this->_sortDir = strtolower($direction);
     }
-
 }

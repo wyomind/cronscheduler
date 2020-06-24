@@ -1,7 +1,6 @@
 <?php
-
-/* *
- * Copyright © 2016 Wyomind. All rights reserved.
+/**
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -27,11 +26,10 @@ namespace Wyomind\CronScheduler\Console\Command\Task;
  */
 class Listing extends \Symfony\Component\Console\Command\Command
 {
-
     /**
-     * @var \Wyomind\CronScheduler\Model\ResourceModel\Task\Collection
+     * @var \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory
      */
-    protected $_taskCollection = null;
+    protected $_taskCollectionFactory = null;
 
     /**
      * @var \Magento\Framework\App\State
@@ -40,16 +38,16 @@ class Listing extends \Symfony\Component\Console\Command\Command
 
     /**
      * Class constructor
-     * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\Collection $taskCollection
+     * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $taskCollectionFactory
      * @param \Magento\Framework\App\State $state
      */
     public function __construct(
-    \Wyomind\CronScheduler\Model\ResourceModel\Task\Collection $taskCollection,
-            \Magento\Framework\App\State $state
+        \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $taskCollectionFactory,
+        \Magento\Framework\App\State $state
     )
     {
         $this->_state = $state;
-        $this->_taskCollection = $taskCollection->sortByScheduledAtDesc();
+        $this->_taskCollectionFactory = $taskCollectionFactory;
         parent::__construct();
     }
 
@@ -71,18 +69,22 @@ class Listing extends \Symfony\Component\Console\Command\Command
      * @return int \Magento\Framework\Console\Cli::RETURN_FAILURE or \Magento\Framework\Console\Cli::RETURN_SUCCESS
      */
     protected function execute(
-    \Symfony\Component\Console\Input\InputInterface $input,
-            \Symfony\Component\Console\Output\OutputInterface $output
+        \Symfony\Component\Console\Input\InputInterface $input,
+        \Symfony\Component\Console\Output\OutputInterface $output
     )
     {
-
-
         try {
-            $this->_state->setAreaCode('adminhtml');
+            try {
+                $this->_state->setAreaCode('adminhtml');
+            } catch (\Exception $e) {
 
-            $table = $this->getHelperSet()->get('table');
+            }
+            $collection = $this->_taskCollectionFactory->create();
+            $collection->sortByScheduledAtDesc();
+
+            $table = new \Symfony\Component\Console\Helper\Table($output);
             $table->setHeaders(['Id', 'Code', 'Status', 'Created at', 'Schedule at', 'Executed at', 'Finished at']);
-            foreach ($this->_taskCollection as $task) {
+            foreach ($collection as $task) {
 
                 $itemData = [
                     $task->getScheduleId(),
@@ -104,8 +106,6 @@ class Listing extends \Symfony\Component\Console\Command\Command
             $returnValue = \Magento\Framework\Console\Cli::RETURN_FAILURE;
         }
 
-
         return $returnValue;
     }
-
 }

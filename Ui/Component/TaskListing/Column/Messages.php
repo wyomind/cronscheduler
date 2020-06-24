@@ -1,19 +1,17 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
 namespace Wyomind\CronScheduler\Ui\Component\TaskListing\Column;
 
 /**
- * Redender for the "messages" columns in the tasks listings
+ * Renderer for the "messages" columns in the tasks listings
  * @version 1.0.0
  */
 class Messages extends \Magento\Ui\Component\Listing\Columns\Column
 {
-
     /**
      * @var \Magento\Framework\UrlInterface
      */
@@ -25,7 +23,6 @@ class Messages extends \Magento\Ui\Component\Listing\Columns\Column
     private $_viewUrl = \Wyomind\CronScheduler\Helper\Url::TASK_VIEW;
     
     /**
-     * 
      * @param \Magento\Framework\View\Element\UiComponent\ContextInterface $context
      * @param \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory
      * @param \Magento\Framework\UrlInterface $urlBuilder
@@ -33,11 +30,11 @@ class Messages extends \Magento\Ui\Component\Listing\Columns\Column
      * @param array $data
      */
     public function __construct(
-    \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
-            \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory,
-            \Magento\Framework\UrlInterface $urlBuilder,
-            array $components = [],
-            array $data = []
+        \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
+        \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory,
+        \Magento\Framework\UrlInterface $urlBuilder,
+        array $components = [],
+        array $data = []
     )
     {
         $this->urlBuilder = $urlBuilder;
@@ -64,5 +61,4 @@ class Messages extends \Magento\Ui\Component\Listing\Columns\Column
 
         return $dataSource;
     }
-
 }

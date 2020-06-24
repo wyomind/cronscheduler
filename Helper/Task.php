@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,15 +12,13 @@ namespace Wyomind\CronScheduler\Helper;
  */
 class Task extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
     const ORIGIN_CRON = 0;
     const ORIGIN_BACKEND = 1;
     const ORIGIN_CLI = 2;
     const ORIGIN_WEBAPI = 3;
 
     /**
-     * 
-     * @return int 0:Cron, 1:Backend, 2:CLI, 3:WebAPI
+     * return int 0:Cron, 1:Backend, 2:CLI, 3:WebAPI
      */
     public function setTrace(&$schedule)
     {
@@ -100,5 +97,4 @@ class Task extends \Magento\Framework\App\Helper\AbstractHelper
                 return __("WebAPI");
         }
     }
-
 }

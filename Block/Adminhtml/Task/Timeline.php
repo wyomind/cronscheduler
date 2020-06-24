@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Block\Adminhtml\Task;
  */
 class Timeline extends \Magento\Backend\Block\Template
 {
-
     /**
      * @var \Magento\Framework\Stdlib\DateTime\DateTime
      */
@@ -35,19 +33,21 @@ class Timeline extends \Magento\Backend\Block\Template
     protected $_magentoVersion = "";
 
     /**
-     * Class constructor
+     * Timeline class constructor.
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $datetime
+     * @param \Wyomind\CronScheduler\Helper\Task $taskHelper
      * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $collectionFactory
+     * @param \Magento\Framework\App\ProductMetadata $productMetaData
      * @param array $data
      */
     public function __construct(
-    \Magento\Backend\Block\Template\Context $context,
-            \Magento\Framework\Stdlib\DateTime\DateTime $datetime,
-            \Wyomind\CronScheduler\Helper\Task $taskHelper,
-            \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $collectionFactory,
-            \Magento\Framework\App\ProductMetadata $productMetaData,
-            array $data = []
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Stdlib\DateTime\DateTime $datetime,
+        \Wyomind\CronScheduler\Helper\Task $taskHelper,
+        \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $collectionFactory,
+        \Magento\Framework\App\ProductMetadata $productMetaData,
+        array $data = []
     )
     {
         $this->_datetime = $datetime;
@@ -101,7 +101,6 @@ class Timeline extends \Magento\Backend\Block\Template
      */
     public function getTimelineData()
     {
-
         $data = [];
         $tasks = $this->_collectionFactory->create();
         $tasks->getSelect()->order('job_code');
@@ -110,15 +109,14 @@ class Timeline extends \Magento\Backend\Block\Template
             $start = $this->addOffset($task->getExecutedAt());
             $end = $this->addOffset($task->getFinishedAt());
 
-
             list ($type, $inner) = $this->_taskHelper->getStatusRenderer($task->getStatus());
 
             $messages = $task->getMessages();
             if (strlen($messages) > 200) {
                 $messages = substr($messages, 0, 200) . "...";
             }
-            $messages = nl2br($messages);
 
+            $messages = nl2br($messages);
 
             $tooltip = "<table class='task " . $type . "'>"
                     . "<tr><td colspan='2'>"
@@ -187,5 +185,4 @@ class Timeline extends \Magento\Backend\Block\Template
 
         return $data;
     }
-
 }

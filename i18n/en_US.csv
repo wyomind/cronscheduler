@@ -38,7 +38,7 @@ SUCCESS,SUCCESS
 "Run tasks & Generate Schedule","Run tasks & Generate Schedule"
 "Task #","Task #"
 "Job code","Job code"
-"Upgrade to <b>Cron Sheduler Pro</b>","Upgrade to <b>Cron Sheduler Pro</b>"
+"Upgrade to <b>Cron Scheduler Pro</b>","Upgrade to <b>Cron Scheduler Pro</b>"
 "License activation","License activation"
 "Extension version","Extension version"
 "Activation key","Activation key"
@@ -48,7 +48,7 @@ SUCCESS,SUCCESS
 Instance,Instance
 Delete,Delete
 "Delete tasks","Delete tasks"
-"Are you sure you wan't to delete selected tasks?","Are you sure you wan't to delete selected tasks?"
+"Are you sure you want to delete selected tasks?","Are you sure you want to delete selected tasks?"
 ID,ID
 "Generate Schedule","Generate Schedule"
 Call,Call

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Helper;
  */
 class HeartBeat extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
     /**
      * @var \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory
      */
@@ -35,18 +33,19 @@ class HeartBeat extends \Magento\Framework\App\Helper\AbstractHelper
     private $_magentoVersion = "";
 
     /**
-     * Class constructor
+     * HeartBeat class constructor.
      * @param \Magento\Framework\App\Helper\Context $context
      * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $scheduleCollectionFactory
      * @param \Magento\Framework\Stdlib\DateTime\DateTime $datetime
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
+     * @param \Magento\Framework\App\ProductMetadata $productMetaData
      */
     public function __construct(
-    \Magento\Framework\App\Helper\Context $context,
-            \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $scheduleCollectionFactory,
-            \Magento\Framework\Stdlib\DateTime\DateTime $datetime,
-            \Magento\Framework\Message\ManagerInterface $messageManager,
-            \Magento\Framework\App\ProductMetadata $productMetaData
+        \Magento\Framework\App\Helper\Context $context,
+        \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $scheduleCollectionFactory,
+        \Magento\Framework\Stdlib\DateTime\DateTime $datetime,
+        \Magento\Framework\Message\ManagerInterface $messageManager,
+        \Magento\Framework\App\ProductMetadata $productMetaData
     )
     {
         $this->scheduleCollectionFactory = $scheduleCollectionFactory;
@@ -85,5 +84,4 @@ class HeartBeat extends \Magento\Framework\App\Helper\AbstractHelper
             $this->messageManager->addError(__("No heartbeat found"));
         }
     }
-
 }

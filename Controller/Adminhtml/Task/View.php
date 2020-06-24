@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -12,7 +11,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Task;
  */
 class View extends \Magento\Backend\App\Action
 {
-
     /**
      * @var string
      */
@@ -41,10 +39,10 @@ class View extends \Magento\Backend\App\Action
      * @param \Wyomind\CronScheduler\Helper\Task $taskHelper
      */
     public function __construct(
-    \Magento\Backend\App\Action\Context $context,
-            \Magento\Framework\Json\Helper\Data $jsonHelper,
-            \Magento\Cron\Model\ScheduleFactory $scheduleFactory,
-            \Wyomind\CronScheduler\Helper\Task $taskHelper
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\Json\Helper\Data $jsonHelper,
+        \Magento\Cron\Model\ScheduleFactory $scheduleFactory,
+        \Wyomind\CronScheduler\Helper\Task $taskHelper
     )
     {
         $this->_jsonHelper = $jsonHelper;
@@ -54,8 +52,7 @@ class View extends \Magento\Backend\App\Action
     }
 
     /**
-     * Action to view the details of a tesk
-     * @return \Magento\Framework\View\Result\Page
+     * Action to view the details of a task
      */
     public function execute()
     {
@@ -71,5 +68,4 @@ class View extends \Magento\Backend\App\Action
         }
         $this->getResponse()->representJson($this->_jsonHelper->jsonEncode($data));
     }
-
 }

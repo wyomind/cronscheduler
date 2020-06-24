@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -13,7 +12,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Task;
  */
 class MassDelete extends \Magento\Backend\App\Action
 {
-
     /**
      * @var string
      */
@@ -35,13 +33,15 @@ class MassDelete extends \Magento\Backend\App\Action
     protected $collectionFactory;
 
     /**
-     * Class constructor
-     * @param Context $context
-     * @param Filter $filter
+     * MassDelete class constructor.
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Ui\Component\MassAction\Filter $filter
+     * @param \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $taskCollectionFactory
      */
-    public function __construct(\Magento\Backend\App\Action\Context $context,
-            \Magento\Ui\Component\MassAction\Filter $filter,
-            \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $taskCollectionFactory
+    public function __construct(
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Ui\Component\MassAction\Filter $filter,
+        \Wyomind\CronScheduler\Model\ResourceModel\Task\CollectionFactory $taskCollectionFactory
     )
     {
         parent::__construct($context);
@@ -73,7 +73,6 @@ class MassDelete extends \Magento\Backend\App\Action
      */
     public function massAction($collection)
     {
-
         $resultRedirect = $this->resultRedirectFactory->create();
         $resultRedirect->setPath($this->redirectUrl);
 
@@ -104,5 +103,4 @@ class MassDelete extends \Magento\Backend\App\Action
     {
         return true;
     }
-
 }

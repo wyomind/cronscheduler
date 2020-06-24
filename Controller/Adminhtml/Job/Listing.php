@@ -1,9 +1,9 @@
 <?php
-
 /**
- * Copyright © 2016 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
+
 namespace Wyomind\CronScheduler\Controller\Adminhtml\Job;
 
 /**
@@ -12,7 +12,6 @@ namespace Wyomind\CronScheduler\Controller\Adminhtml\Job;
  */
 class Listing extends \Magento\Backend\App\Action
 {
-
     /**
      * @var string
      */
@@ -35,9 +34,9 @@ class Listing extends \Magento\Backend\App\Action
      * @param \Wyomind\CronScheduler\Helper\HeartBeat $heartBeatHelper
      */
     public function __construct(
-    \Magento\Backend\App\Action\Context $context,
-            \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-            \Wyomind\CronScheduler\Helper\HeartBeat $heartBeatHelper
+        \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        \Wyomind\CronScheduler\Helper\HeartBeat $heartBeatHelper
     )
     {
         $this->_resultPageFactory = $resultPageFactory;
@@ -58,7 +57,6 @@ class Listing extends \Magento\Backend\App\Action
         return $resultPage;
     }
 
-    
     /**
      * Is the action allowed?
      * @return boolean
@@ -67,5 +65,4 @@ class Listing extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Wyomind_CronScheduler::'.$this->_aclResource);
     }
-    
 }

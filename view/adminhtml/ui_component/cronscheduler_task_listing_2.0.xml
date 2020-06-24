@@ -64,7 +64,7 @@
                         <item name="url" xsi:type="url" path="cronscheduler/task/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete tasks</item>
-                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected tasks?</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected tasks?</item>
                         </item>
                     </item>
                 </argument>

@@ -1,30 +1,25 @@
 <?php
-
 /**
- * Copyright © 2017 Wyomind. All rights reserved.
+ * Copyright © 2019 Wyomind. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
 namespace Wyomind\CronScheduler\Setup;
 
-use Magento\Framework\DB\Ddl\Table;
-use Magento\Framework\Setup\InstallSchemaInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Setup\SchemaSetupInterface;
-
 /**
  * Cron Scheduler install schema setup script
  * @version 1.0.0
  */
-class InstallSchema implements InstallSchemaInterface
+class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
-
     /**
      * {@inheritdoc}
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    public function install(SchemaSetupInterface $setup,
-            ModuleContextInterface $context)
+    public function install(
+        \Magento\Framework\Setup\SchemaSetupInterface $setup,
+        \Magento\Framework\Setup\ModuleContextInterface $context
+    )
     {
         $installer = $setup;
 
@@ -82,5 +77,4 @@ class InstallSchema implements InstallSchemaInterface
 
         $installer->endSetup();
     }
-
 }
